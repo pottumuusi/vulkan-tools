@@ -1,9 +1,10 @@
 #!/bin/bash
 
-# TODO shellcheck
-# * Local make target
-# * Ran in automation
-# * tabs to spaces
+# TODO
+# * [ ] shellcheck
+# * [ ] Local make target
+# * [ ] Ran in automation
+# * [ ] tabs to spaces
 
 # Install based on: https://vulkan.lunarg.com/doc/sdk/1.3.261.1/linux/getting_started.html
 #
