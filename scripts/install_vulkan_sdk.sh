@@ -71,7 +71,12 @@ install_runtime_dependencies_arch() {
 }
 
 install_runtime_dependencies_slackware() {
-	echo "Function not yet implemented: install_runtime_dependencies_slackware()"
+	# Libraries checked with `slackpkg search <pkgname>`:
+	#     qt5-5.15.3_20211130_014c375b-x86_64-2 was preinstalled
+	#     libxcb-1.14-x86_64-3 was preinstalled
+	#     libXinerama-1.1.4-x86_64-3 was preinstalled
+
+	echo "Assuming runtime dependencies to already be present. Not installing."
 }
 
 install_runtime_dependencies() {
