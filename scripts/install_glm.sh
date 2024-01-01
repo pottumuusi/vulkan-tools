@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+SLKBLDSCRIPT_BUILD_NAME="glm" \
+SLKBLDSCRIPT_BUILD_ARCHIVE="glm.tar.gz" \
+SLKBLDSCRIPT_SOURCE_ARCHIVE="glm-0.9.9.5.tar.gz" \
+SLKBLDSCRIPT_REMOTE_BUILD_ARCHIVE="http://slackbuilds.org/slackbuilds/15.0/development/${SLKBLDSCRIPT_BUILD_ARCHIVE}" \
+SLKBLDSCRIPT_REMOTE_SOURCE_ARCHIVE="https://github.com/g-truc/glm/archive/0.9.9.5/${SLKBLDSCRIPT_SOURCE_ARCHIVE}" \
+SLKBLDSCRIPT_SOURCE_ARCHIVE_CHECKSUM='e06e859bd80c5d6042f5c53630f385ec' \
+    ./install_slackbuild.sh
