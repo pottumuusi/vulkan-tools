@@ -10,6 +10,8 @@
 set -e
 
 main() {
+    local -r privileges_via='sudo'
+
     echo "$0 running..."
 
     if [ ! -d /tmp/install_glslc ] ; then
@@ -26,10 +28,17 @@ main() {
         tar xvf ./install.tgz
     fi
 
-    echo "Copying glslc to privileged directory as root"
-    su -l -c " \
-        pushd /tmp/install_glslc/install && \
-        cp --verbose ./bin/glslc /usr/local/bin/"
+    echo "Copying glslc to privileged directory"
+
+    if [ "${privileges_via}" == 'sudo' ] ; then
+        sudo cp --verbose \
+            /tmp/install_glslc/install/bin/glslc \
+            /usr/local/bin/
+    elif [ "${privileges_via}" == 'root' ] ; then
+        su -l -c " \
+            pushd /tmp/install_glslc/install && \
+            cp --verbose ./bin/glslc /usr/local/bin/"
+    fi
 }
 
 main "${@}"
