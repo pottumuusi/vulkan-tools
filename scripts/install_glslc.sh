@@ -38,6 +38,9 @@ main() {
         su -l -c " \
             pushd /tmp/install_glslc/install && \
             cp --verbose ./bin/glslc /usr/local/bin/"
+    else
+        echo "Unknown method of gaining privileges: ${privileges_via}"
+        exit 1
     fi
 }
 
