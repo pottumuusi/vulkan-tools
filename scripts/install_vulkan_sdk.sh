@@ -41,19 +41,26 @@ verify_sdk_tar_package() {
 	fi
 }
 
-install_runtime_dependencies_ubuntu_2204() {
-	# Ubuntu 22.04:	qtbase5-dev libxcb-xinput0 libxcb-xinerama0
-
+install_runtime_dependencies_debian_bookworm() {
 	echo "Updating currently installed packages via apt"
 	sudo apt update
 	sudo apt -y upgrade
 
 	echo "Installing pre-requisites via apt"
-	sudo apt -y install qtbase5-dev libxcb-xinput0 libxcb-xinerama0
+	sudo apt -y install qtbase5-dev qtwayland5
+}
+
+install_runtime_dependencies_ubuntu_2204() {
+	echo "Updating currently installed packages via apt"
+	sudo apt update
+	sudo apt -y upgrade
+
+	echo "Installing pre-requisites via apt"
+	sudo apt -y install qtbase5-dev qtwayland5
 }
 
 install_runtime_dependencies_ubuntu_2004() {
-	# Ubuntu 20.04:	qt5-default libxcb-xinput0 libxcb-xinerama0
+	# Ubuntu 20.04:	qt5-default qtwayland5
 
 	echo "Function not yet implemented: install_runtime_dependencies_ubuntu_2004()"
 }
@@ -86,7 +93,13 @@ install_runtime_dependencies() {
 
 	# if [ # Ubuntu 22.04 # ] ; then
 	# 	install_runtime_dependencies_ubuntu_2204
+	# 	return
 	# fi
+
+	if [ "Debian GNU/Linux" == "${distro_name}" ] ; then
+		install_runtime_dependencies_debian_bookworm
+		return
+	fi
 
 	if [ "Slackware" == "${distro_name}" ] ; then
 		install_runtime_dependencies_slackware
