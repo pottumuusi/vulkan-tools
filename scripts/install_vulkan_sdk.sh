@@ -96,7 +96,7 @@ install_runtime_dependencies() {
 	# 	return
 	# fi
 
-	if [ "Debian GNU/Linux" == "${distro_name}" ] ; then
+	if [ "\"Debian GNU/Linux\"" == "${distro_name}" ] ; then
 		install_runtime_dependencies_debian_bookworm
 		return
 	fi
